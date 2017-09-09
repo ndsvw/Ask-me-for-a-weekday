@@ -22,10 +22,10 @@ let getRandomDateByDifficulty = function(d) {
       return randomDate(new Date(currentYear, 0, 1), new Date(currentYear + 1, 11, 31));
     case 3: // 2000 - 2099
       return randomDate(new Date(2000, 0, 1), new Date(2099, 11, 31));
-    case 4: // 1950 - 2099
-      return randomDate(new Date(1950, 0, 1), new Date(2099, 11, 31));
-    case 5: // 1900 - 2099
+    case 4: // 1900 - 2099
       return randomDate(new Date(1900, 0, 1), new Date(2099, 11, 31));
+    case 5: // 1900 - 2199
+      return randomDate(new Date(1900, 0, 1), new Date(2199, 11, 31));
     case 6: // 100 - 2999
       return randomDate(new Date(100, 0, 1), new Date(2999, 11, 31));
   }
@@ -53,8 +53,8 @@ console.log(color.blue("Please choose a difficulty:"));
 console.log(color.blackBright("1 -> whole current year"));
 console.log(color.blackBright("2 -> whole current year and whole next year"));
 console.log(color.blackBright("3 -> 2000 - 2099"));
-console.log(color.blackBright("4 -> 1950 - 2099"));
-console.log(color.blackBright("5 -> 1900 - 2099"));
+console.log(color.blackBright("4 -> 1900 - 2099"));
+console.log(color.blackBright("5 -> 1900 - 2199"));
 console.log(color.blackBright("6 -> 100 - 2999"));
 
 prompt.start();
