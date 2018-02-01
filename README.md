@@ -1,5 +1,5 @@
 # Ask-me-for-a-weekday
-Ask-me-for-a-weekday is a nodeJS based console-program that asks you for the weekday of a particular date.
+Ask-me-for-a-weekday is a nodeJS based command line application that asks you for the weekday of a particular date.
 
 ![preview of Ask-me-for-a-weekday](https://raw.githubusercontent.com/ndsvw/Ask-me-for-a-weekday/433ab79f486972644ac0a6f6458e9386c7acb2ca/preview.png)
 
