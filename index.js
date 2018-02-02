@@ -1,6 +1,8 @@
 let prompt = require('prompt');
 let color = require('cli-color');
 
+let difficulty;
+
 let monthNames = [
   "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ];
@@ -48,25 +50,38 @@ let askForNewDate = function(difficulty) {
   });
 }
 
+let start = function() {
+  console.log();
+  console.log(color.blue("Please enter the correct number depending on the day of the week:"));
+  console.log(color.blackBright("0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday"));
+  console.log(color.blackBright("Enter -1 to quit."));
+  console.log();
+
+  askForNewDate(parseInt(difficulty));
+}
+
+if(process.argv[2]){
+  difficulty = process.argv[2];
+}
+
 console.log();
-console.log(color.blue("Please choose a difficulty:"));
-console.log(color.blackBright("1 -> whole current year"));
-console.log(color.blackBright("2 -> whole current year and whole next year"));
-console.log(color.blackBright("3 -> 2000 - 2099"));
-console.log(color.blackBright("4 -> 1900 - 2099"));
-console.log(color.blackBright("5 -> 1900 - 2199"));
-console.log(color.blackBright("6 -> 100 - 2999"));
 
-prompt.start();
-prompt.get(['difficulty'], function (err, result) {
-  if (result && parseInt(result.difficulty) >= 0 && parseInt(result.difficulty) <= 6) {
-    console.log();
-    console.log(color.blue("Please enter the correct number depending on the day of the week:"));
-    console.log(color.blackBright("0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday"));
-    console.log(color.blackBright("Enter -1 to quit."));
-    console.log();
+if(!difficulty){
+  console.log(color.blue("Please choose a difficulty:"));
+  console.log(color.blackBright("1 -> whole current year"));
+  console.log(color.blackBright("2 -> whole current year and whole next year"));
+  console.log(color.blackBright("3 -> 2000 - 2099"));
+  console.log(color.blackBright("4 -> 1900 - 2099"));
+  console.log(color.blackBright("5 -> 1900 - 2199"));
+  console.log(color.blackBright("6 -> 100 - 2999"));
 
-    askForNewDate(parseInt(result.difficulty));
-  }
-});
-
+  prompt.start();
+  prompt.get(['difficulty'], function (err, result) {
+    if (result && parseInt(result.difficulty) >= 0 && parseInt(result.difficulty) <= 6) {
+      difficulty = result.difficulty;
+      start();
+    }
+  });
+} else {
+  start();
+}
