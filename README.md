@@ -17,3 +17,19 @@ npm start
 2. Choose the diffuculty!
 
 3. Enter the indices (0-6) of the weekdays! 
+
+
+## Alternative
+1. Run the command:
+```bash
+npm start [difficulty-number]
+```
+2. Enter the indices (0-6) of the weekdays!
+
+## Diffuculties
+- 1 -> whole current year
+- 2 -> whole current year and whole next year
+- 3 -> 2000 - 2099
+- 4 -> 1900 - 2099
+- 5 -> 1900 - 2199
+- 6 -> 100 - 2999
