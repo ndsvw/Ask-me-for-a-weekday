@@ -39,7 +39,7 @@ let askForNewDate = function(difficulty) {
   prompt.start();
   prompt.get(["index"], function (err, result) {
     if (result && result.index >= 0) {
-      if (String(result.index) == String(randDate.getDay())) {
+      if (String(result.index) === String(randDate.getDay())) {
         console.log(color.green("correct"));
       } else {
         console.log(color.red("wrong, it's " + String(randDate.getDay())));
