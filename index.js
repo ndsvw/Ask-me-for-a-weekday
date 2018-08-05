@@ -1,5 +1,5 @@
-let prompt = require('prompt');
-let color = require('cli-color');
+let prompt = require("prompt");
+let color = require("cli-color");
 
 let difficulty;
 
@@ -8,12 +8,12 @@ let monthNames = [
 ];
 
 let formatDate = function (date) {
-  return date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear();
-}
+  return date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
+};
 
 let randomDate = function (start, end) {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
+};
 
 let getRandomDateByDifficulty = function(d) {
   let currentYear = new Date().getFullYear();
@@ -31,13 +31,13 @@ let getRandomDateByDifficulty = function(d) {
     case 6: // 100 - 2999
       return randomDate(new Date(100, 0, 1), new Date(2999, 11, 31));
   }
-}
+};
 
 let askForNewDate = function(difficulty) {
   let randDate = getRandomDateByDifficulty(difficulty);
   console.log(color.blue(formatDate(randDate)));
   prompt.start();
-  prompt.get(['index'], function (err, result) {
+  prompt.get(["index"], function (err, result) {
     if (result && result.index >= 0) {
       if (String(result.index) == String(randDate.getDay())) {
         console.log(color.green("correct"));
@@ -48,7 +48,7 @@ let askForNewDate = function(difficulty) {
       askForNewDate(difficulty);
     }
   });
-}
+};
 
 let start = function() {
   console.log();
@@ -58,7 +58,7 @@ let start = function() {
   console.log();
 
   askForNewDate(parseInt(difficulty));
-}
+};
 
 if(process.argv[2]){
   difficulty = process.argv[2];
@@ -76,7 +76,7 @@ if(!difficulty){
   console.log(color.blackBright("6 -> 100 - 2999"));
 
   prompt.start();
-  prompt.get(['difficulty'], function (err, result) {
+  prompt.get(["difficulty"], function (err, result) {
     if (result && parseInt(result.difficulty) >= 0 && parseInt(result.difficulty) <= 6) {
       difficulty = result.difficulty;
       start();
